@@ -1,13 +1,13 @@
 export const data = {
 	image_gallery_path: "../gallery/projects/",
-	player_arguments: "autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&loop=1",
+	player_arguments: "autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&loop=0",
 	video_hosting_link: "https://www.youtube.com/embed/",
 	skills: {
 		"Graphics APIs & Rendering": ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "HLSL", "GLSL", "PSSL"],
 		"Real-Time Systems": ["Multithreading", "GPU programming", "SIMD optimisation", "memory management", "performance profiling"],
 		"Programming Languages": ["C/C++", "C#", "Lua scripting integration", "custom engine systems"],
 		"Development Tools": ["Visual Studio", "RenderDoc", "debugging & profiling tools", "build systems (MSBuild)"],
-		"Other Skills": ["HTML/CSS/JS"]
+		"Other Skills": ["HTML", "JavaScript", "CSS"]
 	},
 	education:
 	{
@@ -53,7 +53,6 @@ export const data = {
 				"Deferred Rendering",
 				"WBOIT",
 				"Shadow Mapping",
-				"ImGui"
 			],
 			preview: "wboit-look.gif",
 			gallery: ["wboit-sign.jpg", "wboit-nomination-table.jpg"],
