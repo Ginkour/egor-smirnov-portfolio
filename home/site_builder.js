@@ -59,8 +59,47 @@ function renderHeader() {
 			<div class="header-major-skills">
 				<h5 class="subtitle">${data.contact.shiny_skills.join(" · ")}</h5>
 			</div>
+			<div class="header-navigation-panel">
+				<button class="home-page">Home</button>
+				<div class="projects-menu">
+					<button class="projects">Projects ▼</button>
+				  <ul class="dropdown-list">${data.projects.map((project, index) => `<li><a onclick="navigateToProject(${index})">${project.title}</a></li>`).join("")}</ul>
+				</div>
+			</div>
 		</div>
 	`;
+	
+	// Setup dropdown toggle and hover
+	const projectsMenu = container.querySelector('.projects-menu');
+	const projectsBtn = container.querySelector('.projects');
+	const dropdownList = container.querySelector('.dropdown-list');
+	const homeBtn = container.querySelector('.home-page');
+	
+	if (projectsBtn && dropdownList) {
+		projectsBtn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			dropdownList.classList.toggle('show');
+		});
+		
+		projectsMenu.addEventListener('mouseenter', () => {
+			dropdownList.classList.add('show');
+		});
+		
+		projectsMenu.addEventListener('mouseleave', () => {
+			dropdownList.classList.remove('show');
+		});
+		
+		document.addEventListener('click', () => {
+			dropdownList.classList.remove('show');
+		});
+	}
+	
+	if (homeBtn) {
+		homeBtn.addEventListener('click', () => {
+			window.location.hash = '';
+			handleUrlRouting();
+		});
+	}
 }
 
 function renderEducation() {
@@ -150,7 +189,7 @@ function renderProject(index)
 			${gallerySize > 0 ? `<div class="gallery-wrapper"><div class="horizontal-gallery">${proj.gallery.map(image => `<img src="${galleryPath(image)}">`).join("")}</div></div>` : ""}
 			${proj.description_paragraphs ? `<h4>Details</h4>` + proj.description_paragraphs.map(b => `<pclass="project-desc-paragraph">${b}</p>`).join("") : ""}
 			${proj.highlights && proj.highlights.length > 0 ? `<h4>Highlights</h4><ul>${proj.highlights.map(b => `<li>${b}</li>`).join("")}</ul>` : ""}
-			${proj.challanges && proj.challanges.length > 0  ? `<h4>Challanges</h4><ul>${proj.challanges.map(b => `<li>${b}</li>`).join("")}</ul>` : ""}
+			${proj.challenges && proj.challenges.length > 0  ? `<h4>Challenges</h4><ul>${proj.challenges.map(b => `<li>${b}</li>`).join("")}</ul>` : ""}
 			${proj.contributions && proj.contributions.length > 0  ? `<h4>Contribution</h4><ul>${proj.contributions.map(b => `<li>${b}</li>`).join("")}</ul>` : ""}
 			<div class="links">
 				${proj.links.github ? `<a href="${proj.links.github}" target="_blank"><i class="fab fa-github"></i> Repository</a>` :""}
@@ -214,8 +253,16 @@ function renderFooter() {
 }
 
 window.navigateToProject = function(id) {
-  const newUrl = ` ${window.location}#subpage?project=${id}`;
-  window.history.pushState({ project: id }, '', newUrl);
+	let newUrl = "";
+  if(window.location.hash.substring(1) != null) {
+		let baseUrl = window.location.href.split('#')[0];
+		console.log("Hash exists: ", window.location.hash.substring(1), "Using different URL-Base:", baseUrl);
+  	newUrl = `${baseUrl}#subpage?project=${id}`;
+	}
+	else {
+  	newUrl = `${window.location}#subpage?project=${id}`;
+	}
+  window.history.pushState({project:id}, '', newUrl);
   handleUrlRouting(); 
 };
 

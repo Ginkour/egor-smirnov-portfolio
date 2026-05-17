@@ -68,7 +68,7 @@ export const data = {
 				"Developed runtime rendering controls, frametime monitoring, and live debugging tools using ImGui"
 			],
 		
-			challanges: [
+			challenges: [
 				"Managing explicit Vulkan image layout transitions and synchronization between rendering stages",
 				"Implementing WBOIT blending pipelines and transparency accumulation correctly across multiple render targets",
 				"Handling descriptor set organisation and resource binding across several rendering passes",
@@ -124,7 +124,7 @@ export const data = {
 				"Designed reusable synchronization abstractions for queue submission and GPU dependency management"
 			],
 		
-			challanges: [
+			challenges: [
 				"Managing explicit synchronization between asynchronous compute and graphics workloads using semaphores and Vulkan 		pipeline stage dependencies",
 				"Preventing GPU read/write hazards through ping-pong buffered particle simulation architectures",
 				"Designing descriptor set layouts and shared resource systems for simultaneous compute and graphics pipeline access",
