@@ -25,12 +25,12 @@ function getProjectPreview(index)
 	else
 		return data.base_project_preview_path + data.default_project_preview;
 }
-function copyText(button, text, originalText) {
+function copyText(button, text) {
 	navigator.clipboard.writeText(text).then(() => {
 		button.innerText = "Copied To Clipboard!";
 
 		setTimeout(() => {
-			button.innerText = originalText;
+			button.innerText = text;
 		}, 750);
 	});
 }
@@ -143,10 +143,10 @@ function renderProject(index)
 		</div>` :
 	""}`;
 
-	div.className = "project-details-page-tile";
+	div.className = "project-details-page";
 	div.innerHTML = `
 		<div class="project-technologies">${proj.tech.join(" · ")}</div>        
-		<div class="project-details-page-tile" id="proj_details-${index}">
+		<div class="project-details-page" id="proj_details-${index}">
 			${gallerySize > 0 ? `<div class="gallery-wrapper"><div class="horizontal-gallery">${proj.gallery.map(image => `<img src="${galleryPath(image)}">`).join("")}</div></div>` : ""}
 			${proj.description_paragraphs ? `<h4>Details</h4>` + proj.description_paragraphs.map(b => `<pclass="project-desc-paragraph">${b}</p>`).join("") : ""}
 			${proj.highlights && proj.highlights.length > 0 ? `<h4>Highlights</h4><ul>${proj.highlights.map(b => `<li>${b}</li>`).join("")}</ul>` : ""}
@@ -180,26 +180,35 @@ function renderFooter() {
 
 	const section = document.getElementById(m_data.section.footer);
 
+	let style = "";
+	if(projectsWidth > 0)
+	{
+		style = ` style="
+			width: ${projectsWidth}px;
+			max-width: ${projectsWidth}px;
+			box-sizing: border-box;
+		"`;
+	}
 	section.className = "container-footer";
 	section.innerHTML = `
-		<div class="contact-info contact-info-links" ${(projectsWidth > 0) ? `style="width: ${projectsWidth}px;"` : ""}>
+		<div class="contact-info"${style}>
 			<h2>Contact Info</h2>
-			<div>
+			<div class="contact-info-links">
 				<h4><a href="${data.contact.linkedin}" target="_blank" class="footer-links"><i class="fab fa-linkedin"></i> LinkedIn</a></h4>
 				<h4><a href="${data.contact.github}" target="_blank" class="footer-links"><i class="fab fa-github"></i> GitHub</a></h4>
 			</div>
 			<div>
 				<h4>E-mail: <a href="mailto:${data.contact.email}" class="footer-links">${data.contact.email}</a></h4> 
 				<h4>Phone-Number: 
-					<button class="footer-link copy-button", onclick="copyText(this, '${data.contact.phone}', '${data.contact.phone}')">
+					<button class="footer-link copy-button", onclick="copyText(this, '${data.contact.phone}')">
 						${data.contact.phone}
 					</button>
 				</h4>
 			</div>
-		</div>
-		<div class="contact-info">
-			<h3>${data.contact.name} &copy; <span id="footer_year">${new Date().getFullYear().toString()}</span></h3>
-			<h3>${data.contact.location}</h3>
+			<div class="contact-info-copyright">
+				<h3>${data.contact.name} &copy; <span>${new Date().getFullYear().toString()}</span></h3>
+				<h3>${data.contact.location}</h3>
+			</div>
 		</div>
 	`;
 }
