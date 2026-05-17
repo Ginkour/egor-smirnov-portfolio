@@ -1,0 +1,240 @@
+html, body {
+  font-family: 'Josefine-sans', sans-serif;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #0e0827, #1e425d);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.subtitle {
+  color: #cfcfcf;
+}
+
+.container-header {
+  line-height: 1;
+  background: linear-gradient(to right, #003f73, #0073d2);
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 0.5%;
+}
+.container-footer {
+  line-height: 1;
+  width: 100%;
+  padding: 50px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  background-color: #8d8d8d74;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+.header-links {
+  gap: 20px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-link-item {
+  text-decoration: none;
+  cursor: pointer;
+}
+.header-link-item a {
+  margin-right: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.header-link-item a:hover {
+  text-decoration: underline;
+}
+
+.header-content-wrapper {
+}
+.header-name-specialities {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-major-skills {
+  text-align: center;
+}
+.project-tile-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 10px;
+}
+.project-tile-preview-img {
+  display: flex;
+  gap: 15px;
+}
+.project-tile-preview-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.container {
+  line-height: 1;
+  max-width: 100%;
+  min-width: 45%;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  background-color: #58696f3d;
+}
+.container-project-previews {
+  line-height: 1;
+  max-width: 100%;
+  min-width: 45%;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  background-color: #58696f3d;
+}
+
+.button-details:hover {
+  background: #4cc57054;
+}
+
+.project-preview-tile {
+  background-color: #2d2f2f8d;
+  padding: 10px;
+  padding-bottom: 0px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  flex: 0 0 calc(50% - 10px); 
+  width: 50%;
+  border-radius: 8px;
+  border: 1px solid #8888882b;
+}
+
+.project h3 {
+  margin: 0;
+}
+
+.project-preview-tile:hover {
+  cursor: pointer;
+  background-color: #4660608d;
+}
+
+.project-timeframe {
+  margin-top: 7px;
+  color: #b3b3b3;
+}
+
+.project-technologies {
+  font-size: 1em;
+  color: #888;
+  margin: 5px 0 10px;
+}
+
+.project-desc-paragraph {
+}
+
+.project-details-page-tile {
+  width: 100%;
+}
+
+.project-style {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.video-wrapper {
+  width: 100%;
+  margin-top: 80px;
+}
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 15px #00000035;
+}
+
+.copy-button {
+  background: #ffffff00;
+  color: lemonchiffon;
+  cursor: pointer;
+  border: none;
+}
+.copy-button:hover {
+  color: yellowgreen;
+  text-decoration: underline;
+}
+
+.links a {
+  margin-right: 10px;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  color: lemonchiffon;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-links:hover {
+  color: yellowgreen;
+  text-decoration: underline;
+}
+
+.contact-info-section {
+}
+.contact-info {
+  margin: auto;
+}
+.contact-info-links {
+}
+
+.gallery-wrapper {
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  scrollbar-color: rgba(153, 205, 50, 0.252) transparent;
+}
+.horizontal-gallery {
+  display: flex;
+  gap: 15px;
+}
+.horizontal-gallery img {
+  height: 200px;
+  width: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
