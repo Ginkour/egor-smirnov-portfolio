@@ -2,12 +2,14 @@ export const data = {
 	image_gallery_path: "../gallery/projects/",
 	player_arguments: "autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&loop=0",
 	video_hosting_link: "https://www.youtube.com/embed/",
+	base_project_preview_path: "../gallery/previews/",
+	default_project_preview: "default_preview.png",
 	skills: {
 		"Graphics APIs & Rendering": ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "HLSL", "GLSL", "PSSL"],
 		"Real-Time Systems": ["Multithreading", "GPU programming", "SIMD optimisation", "memory management", "performance profiling"],
-		"Programming Languages": ["C/C++", "C#", "Lua scripting integration", "custom engine systems"],
+		"Programming Languages": ["C", "C++17/C++20", "C#", "Lua scripting integration", "custom engine systems"],
 		"Development Tools": ["Visual Studio", "RenderDoc", "debugging & profiling tools", "build systems (MSBuild)"],
-		"Other Skills": ["HTML", "JavaScript", "CSS"]
+		"Game Engines": ["Unity 5", "Unreal Engine 5(Familiarity with BluePrints)"],
 	},
 	education:
 	{
@@ -16,14 +18,17 @@ export const data = {
 		university: "Sheffield Hallam University ",
 		university_link: "https://www.shu.ac.uk/",
 		highlights: [
-			"Focused on rendering and engine systems",
-			"Relevant coursework: graphics, real-time rendering, low-level programming, proprietary console development"
+			"Focused on rendering and engine systems, console game development for PS5 with groupwork.",
+			"Coursework includes: graphics, real-time rendering, compute-shaders, low-level programming, proprietary console development on PS5"
 		]
 	},
-	about: `
-				Focused on low-level graphics and engine systems.
-				Interested in performance, rendering architecture, and console constraints.
-		`,
+	about: [`
+			I am specialising in graphics and engine programming. Experienced in developing real-time rendering systems and low-level engine architecture using C++, Vulkan, DirectX 11, PS5 AGC, and OpenGL. Strong background in GPU programming, compute shaders, deferred rendering, multithreading, SIMD optimisation, and low-level graphics API resource management.`,
+			`
+			My most recent notable project is deferred renderer with weighted blended order-independent transparency (WBOIT) implementation in Vulkan, this project was nominated in Best Research/Steel Minions/Special Project Category at Sheffield Hallam University Game Over 26 event and received an honourable mention from judges. This project has also been nominated for Game Republic Student Showcase 2026 event at University of Salford.`,
+			`
+			I am Interested in graphics programming, rendering architecture, performance optimisation, and modern engine development.`
+		],
 	contact: {
 		email: 		"egsmiroff@gmail.com",
 		linkedin: "https://www.linkedin.com/in/egor-smirnov-ab227a279/",
@@ -32,119 +37,84 @@ export const data = {
 		phone: 		"+4407936623559",
 		name: 		"Egor Smirnov",
 		specialities: ["Graphics", "Engine&Tools", "Gameplay"],
-		shiny_skills: ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "HLSL/GLSL/PSSL"],
+		shiny_skills: ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "GLSL", "HLSL", "PSSL"],
 		location: 		"Sheffield, United Kingdom",
 	},
-	display_hidden: "none",
-	display_visible: "block",
-	base_project_preview_path: "../gallery/previews/",
-	default_project_preview: "default_preview.png",
 	projects: [
 		{
-			title: "Vulkan Deferred Renderer & Weight Blended Transparency Implementation",
+			title: "Order Independent Transparency & Deferred Rendering in Vulkan",
 			timeframe: "March 2026 - April 2026",
-
 			summary:
-				"Custom Vulkan renderer featuring deferred shading, weighted blended order-independent transparency (WBOIT), shadow mapping, dynamic rendering, and fully explicit GPU resource management.",
+				"Custom Vulkan based deferred renderer with Order Independent Transparency Implementation",
 			tech: [
 				"C++",
 				"Vulkan",
 				"GLSL",
 				"Deferred Rendering",
+				"OIT",
 				"WBOIT",
-				"Shadow Mapping",
+				"Shadows",
 			],
 			preview: "wboit-look.gif",
 			gallery: ["wboit-sign.jpg", "wboit-nomination-table.jpg"],
 		
 			highlights: [
-				"Built a custom Vulkan deferred rendering pipeline with G-buffer generation and fullscreen lighting passes",
-				"Implemented weighted blended order-independent transparency (WBOIT) for real-time transparent object rendering without depth sorting",
-				"Developed custom Vulkan abstraction systems for rendering setup, render targets, descriptor management, and pipeline creation",
-				"Implemented dynamic rendering workflows using VkRenderingInfo without traditional Vulkan render passes",
-				"Created explicit GPU synchronization and image layout transition systems across graphics workloads",
-				"Built multi-render-target G-buffer systems including albedo, normals, depth, and lighting buffers",
-				"Implemented real-time shadow mapping with large resolution shadow depth targets and custom shadow sampling",
-				"Developed runtime rendering controls, frametime monitoring, and live debugging tools using ImGui"
-			],
-		
-			challenges: [
-				"Managing explicit Vulkan image layout transitions and synchronization between rendering stages",
-				"Implementing WBOIT blending pipelines and transparency accumulation correctly across multiple render targets",
-				"Handling descriptor set organisation and resource binding across several rendering passes",
-				"Balancing GPU memory usage with large render targets, shadow maps, and multi-buffered resources",
-				"Designing reusable Vulkan rendering abstractions without hiding important low-level GPU behaviour",
-				"Debugging rendering artefacts caused by depth testing, blending states, and pipeline configuration"
+				"Deferred rendering pipeline",
+				"Weighted blended order-independent transparency (WBOIT) for real-time transparent object rendering without depth sorting",
+				"Abstraction systems over Vulkan",
+				"Bindless rendering with descriptor indexing",
+				"Static shadow mapping",
 			],
 		
 			description_paragraphs: [
-				`This project is a custom Vulkan renderer built in C++ featuring deferred rendering, weighted blended order-independent transparency (WBOIT), shadow mapping, and fully explicit GPU resource management.`,
+				`This project is a custom Vulkan renderer built in C++ featuring deferred rendering, weighted blended order-independent transparency (WBOIT), shadow mapping, and fully explicit GPU resource management. The renderer uses multiple G-buffer render targets to store scene data such as albedo, normals, before performing fullscreen lighting and post-processing passes. Traditional render passes from core vulkan were replaced with dynamic rendering extension implementation.`,
 			
-				`The renderer uses multiple G-buffer render targets to store scene data such as albedo, normals, and depth before performing fullscreen lighting and post-processing passes. Dynamic rendering was 		implemented using Vulkan's VkRenderingInfo system instead of traditional render passes.`,
+				`A major focus of the project was transparency rendering using weighted blended OIT techniques. The engine accumulates transparent surfaces into dedicated render targets without requiring expensive object sorting.`,
 			
-				`A major focus of the project was transparency rendering using weighted blended OIT techniques. The engine accumulates transparent surfaces into dedicated render targets without requiring expensive 		object sorting.`,
-			
-				`Additional systems include shadow map generation, runtime shader and texture management, descriptor set abstraction systems, GPU staging buffers, live debugging tools, and configurable rendering 		controls through ImGui.`,
+				`Additional systems include shadow map generation, runtime shader and texture management, descriptor set abstraction systems, GPU staging buffers`,
 			],
 		
 			links: {
 				video: "8eyNf285UN0",
-				executable: "",
+				executable: "https://drive.google.com/file/d/1DLpjiZzqzPQCqYNXGUxeRwnhWK1sENJL/",
+				presentation: "https://docs.google.com/presentation/d/171WNYncfF7dTUkG2NtpfY-9tVVlUiczf/edit?usp=drive_link&ouid=106066398032300991200&rtpof=true&sd=true",
 			},
 		},
 		{
-			title: "Vulkan GPU Particle System",
+			title: "GPU-Compute Particle System in Vulkan",
 			timeframe: "October 2025 - December 2025",
-
 			summary:
 				"GPU-driven particle simulation and rendering system built in C++ and Vulkan using compute shaders, storage buffers, 		descriptor set management, and asynchronous compute/graphics synchronization.",
-
 			tech: [
 				"C++",
 				"Vulkan",
 				"GLSL",
 				"Compute Shaders",
-				"GPU Programming",
-				"Multibuffering",
 				"ImGui"
 			],
-			
 			preview: "vkcomp-particles.gif",
-			gallery: [],
-		
 			highlights: [
-				"Developed a fully GPU-driven particle simulation pipeline using Vulkan compute shaders and storage buffer objects",
-				"Implemented ping-pong buffered particle simulation architecture to avoid read/write hazards between compute and graphics 		stages",
-				"Built explicit Vulkan synchronization systems using semaphores and pipeline stage barriers between asynchronous compute 		and rendering workloads",
-				"Implemented GPU particle spawning, velocity integration, gravity simulation, lifetime handling, and color interpolation 		entirely on the GPU",
-				"Processed and rendered over one million particles in real time using compute shader dispatch workloads",
-				"Created custom packed particle memory layouts to reduce GPU memory usage and improve cache efficiency",
-				"Implemented configurable runtime particle controls using ImGui for live simulation tuning and performance monitoring",
-				"Built custom Vulkan graphics and compute pipeline creation systems including shader loading, descriptor pools, push 		constants, and command buffer management",
-				"Designed reusable synchronization abstractions for queue submission and GPU dependency management"
+				"Developed a fully GPU-driven particle simulation pipeline using Vulkan compute shaders",
+				"Ping-pong buffering to avoid read/write hazards between compute and graphics stages",
+				"Explicit synchronization between graphics and compute queues",
+				"Compute-based particle spawning, velocity, gravity, lifetime, and color interpolation",
+				"Custom packed particle memory layouts to reduce gpu memory footprint",
+				"ImGui-based runtime configuration of compute shaders, with frametime metrics",
 			],
 		
 			challenges: [
-				"Managing explicit synchronization between asynchronous compute and graphics workloads using semaphores and Vulkan 		pipeline stage dependencies",
-				"Preventing GPU read/write hazards through ping-pong buffered particle simulation architectures",
-				"Designing descriptor set layouts and shared resource systems for simultaneous compute and graphics pipeline access",
-				"Optimizing GPU memory bandwidth through packed particle data layouts and reduced buffer sizes",
-				"Scaling compute shader dispatch workloads to support over one million particles in real time",
-				"Minimizing CPU overhead by performing particle spawning, simulation, and updates entirely on the GPU",
-				"Coordinating frames-in-flight synchronization and inter-frame resource ownership safely",
-				"Building reusable Vulkan abstraction systems without hiding low-level synchronization and resource management details"
+				"Synchronizing Compute and Graphics queues' workloads",
+				"Preventing GPU read/write hazards",
+				"Vertex shader based particle culling",
+				"Building reusable abstractions while preserving explicit control"
 			],
 		
 			description_paragraphs: [
-				`This project is a GPU-driven particle simulation and rendering system developed from scratch in C++ using Vulkan and GLSL 		compute shaders. The project focused heavily on low-level graphics programming, explicit GPU synchronization, memory 		management, and parallel compute workloads.`,
-			
+				`This project is a GPU-driven particle simulation and rendering system developed from scratch in C++ using Vulkan and GLSL compute shaders. The project focused heavily on low-level graphics programming, explicit GPU synchronization, memory management, and parallel compute workloads.`,
 				`Particle simulation is performed entirely on the GPU using Vulkan compute shaders and storage buffer objects. The system 		uses a ping-pong buffering architecture where particle data from the previous frame is read while the current frame writes 		updated particle state into a separate buffer set, preventing read/write hazards during simulation and rendering.`,
-			
-				`The renderer supports over one million active particles in real time and includes GPU-based spawning, velocity 		integration, gravity simulation, lifetime updates, and dynamic color interpolation. Particle data was packed into 		optimized memory layouts to reduce bandwidth usage and improve overall GPU efficiency.`,
-			
-				`A major focus of the project was explicit Vulkan synchronization and resource management. Compute and graphics workloads 		are synchronized manually using semaphores, command buffers, descriptor sets, pipeline layouts, and pipeline stage 		dependencies across frames-in-flight.`,
-			
-				`Additional systems include runtime particle editing through ImGui, frametime graph visualization, custom shader loading 		systems, descriptor pool management, and fully custom Vulkan graphics and compute pipeline creation architecture.`,
+				`The renderer supports over one million active particles in real time and includes GPU-based spawning, velocity 		integration, gravity simulation, lifetime updates, and dynamic color interpolation. Particle data was packed into optimized memory layouts to reduce bandwidth usage and improve overall GPU efficiency.`,
+				`A major focus of the project was explicit Vulkan synchronization and resource management. Compute and graphics workloads 		are synchronized manually using semaphores, command buffers, descriptor sets, pipeline layouts, and pipeline stage dependencies across frames-in-flight.`,
+				`Additional systems include runtime particle editing through ImGui, frametime graph visualization, custom shader loading systems, descriptor pool management, and fully custom Vulkan graphics and compute pipeline creation architecture.`,
 			],
 		
 			links: {
@@ -153,7 +123,7 @@ export const data = {
 			},
 		},
 		{
-			title: "VoxelGame",
+			title: "Voxel Game",
 			timeframe: "November 2023 - December 2023",
 			summary: "A Minecraft-inspired voxel engine and sandbox game built from scratch in C++ using DirectX 11 and HLSL, featuring infinite procedural terrain generation, multithreaded chunk systems, and optimized mesh rendering.",
 			tech: ["C++", "DirectX11/HLSL", "Multi-Threading", "Git", "FMOD"],
@@ -190,7 +160,7 @@ export const data = {
 			timeframe: "Decemeber 2022 - February 2023",
 			summary: "My first game project written in C++, inspired by the classic arcade game Pac-Man.",
 			tech: ["C++", "MySQL", "SFML", "Git"],
-			gallery: [],
+			preview: "pacman-gameplay.gif",
 			highlights: [
 				"Implemented local MySQL database storage for high scores",
 				"Created dynamic maze generation using .png-based tile mapping and sprite generation",

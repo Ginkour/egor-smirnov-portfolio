@@ -195,6 +195,7 @@ function renderProject(index)
 				${proj.links.github ? `<a href="${proj.links.github}" target="_blank"><i class="fab fa-github"></i> Repository</a>` :""}
 				${proj.links.source_code ? `<a href="${proj.links.source_code}" target="_blank"><i class="fab fa-google-drive"></i> Source Code</a>` : ""}
 				${proj.links.executable ? `<a href="${proj.links.executable}" target="_blank"><i class="fab fa-google-drive"></i> Playable Demo</a>` : ""}
+				${proj.links.presentation ? `<a href="${proj.links.presentation}" target="_blank"><i class="fa-solid fa-file-powerpoint"></i> Presentation</a>` : ""}
 				${constructedVideo}
 			</div>
 		</div>
@@ -208,7 +209,7 @@ function renderBiography()
 	var bioSection = document.getElementById(m_data.section.bio);
 	bioSection.innerHTML = `
 		<h2>About Me</h2>
-		<p>${data.about}</p>
+		${data.about.map(p => `<p>${p}</p>`).join("")}
 	`;
 }
 
