@@ -13,12 +13,13 @@ export const data = {
 	},
 	education:
 	{
-		degree: "MSc / MComp - Computer Science for Games 2022 - 2026",
+		degree: "MSc / MComp - Computer Science for Games (Integrated Masters) 2022 - 2026",
 		classification: "First Class Honours",
 		university: "Sheffield Hallam University ",
 		university_link: "https://www.shu.ac.uk/",
+		transcript_folder: "https://drive.google.com/drive/folders/1OA2k_F5jnv_DMZq3pKMF4RFZMwUXY8fZ",
+		official_degree_name: "MComp - Computer Science for Games",
 		highlights: [
-			"MComp - Computer Science for Games(Integrated Masters)",
 			"Focused on rendering and engine systems, console game development for PS5 with groupwork.",
 			"Coursework includes: graphics, real-time rendering, compute-shaders, low-level programming, proprietary console development on PS5"
 		]

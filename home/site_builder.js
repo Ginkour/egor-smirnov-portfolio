@@ -109,8 +109,9 @@ function renderEducation() {
 		<h2>Education</h2>
 		<p><strong>${education.degree}</strong></p>
 		<p>${education.classification}</p>
+		<p class="header-link-item"><a href="${education.transcript_folder}"><i class="fa-solid fa-link"></i> University Grades Transcript(Missing grades are inside the folder)</a></p>
 		<p class="header-link-item"><a href="${education.university_link}"><i class="fa-solid fa-link"></i> ${education.university}</a></p>
-	`;
+		`;
 }
 
 function renderSkills() {
