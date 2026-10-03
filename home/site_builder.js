@@ -34,6 +34,14 @@ function copyText(button, text) {
 		}, 750);
 	});
 }
+function formatExperienceDate(date) {
+	if (!date) return "Present";
+
+	return new Date(`${date}T00:00:00`).toLocaleDateString("en-GB", {
+		month: "short",
+		year: "numeric"
+	});
+}
 
 //==============Render Functions=====================
 
@@ -112,6 +120,50 @@ function renderEducation() {
 		<p class="header-link-item"><a href="${education.transcript_folder}"><i class="fa-solid fa-link"></i> University Grades Transcript(Missing grades are inside the folder)</a></p>
 		<p class="header-link-item"><a href="${education.university_link}"><i class="fa-solid fa-link"></i> ${education.university}</a></p>
 		`;
+}
+
+function renderExperience() {
+	const exp = data.experience;
+
+	document.getElementById(m_data.section.experience).innerHTML = `
+		<h2>Experience</h2>
+
+		<div class="project-style">
+			${exp.map(job => `
+				<div class="experience-preview-tile">
+					<div>
+						<h3>${job.company}</h3>
+
+						${job.roles.map(role => `
+							<p>
+								<strong>${role.name}</strong>
+								<span class="subtitle">(${role.type})</span>
+							</p>
+						`).join("")}
+
+						<p class="project-timeframe">
+							${formatExperienceDate(job.time.begin)}
+							-
+							${formatExperienceDate(job.time.end)}
+							· ${job.location}
+						</p>
+					</div>
+
+					<div class="experience-highlights">
+						${job.highlights.map((highlight, i) => `
+							<div class="experience-highlight">
+								<strong>${highlight}</strong>
+								${job.highlights[i + 1] && i % 2 === 0
+									? `<p>${job.highlights[i + 1]}</p>`
+									: ""
+								}
+							</div>
+						`).filter((_, i) => i % 2 === 0).join("")}
+					</div>
+				</div>
+			`).join("")}
+		</div>
+	`;
 }
 
 function renderSkills() {
@@ -282,6 +334,7 @@ function buildMainBody()
 	document.body.innerHTML = `
     <header class="container" id="${m_data.section.header}"></header>
     <section class="container" id="${m_data.section.bio}"></section>
+    <section class="container" id="${m_data.section.experience}"></section>
     <section class="container" id="${m_data.section.education}"></section>
     <section class="container" id="${m_data.section.skills}"></section>
     <section class="container" id="${m_data.section.projects}"></section>
@@ -335,6 +388,7 @@ function handleUrlRouting() {
 			() => {
 			renderSkills();
 			renderBiography();
+			renderExperience();
 			renderEducation();
 			renderProjectTiles();
 		});

@@ -5,15 +5,15 @@ export const data = {
 	base_project_preview_path: "../gallery/previews/",
 	default_project_preview: "default_preview.png",
 	skills: {
-		"Graphics APIs & Rendering": ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "HLSL", "GLSL", "PSSL"],
+		"Graphics APIs & Rendering": ["Vulkan", "PS5 AGC", "DirectX 12/11", "OpenGL", "HLSL", "GLSL", "PSSL"],
 		"Real-Time Systems": ["Multithreading", "GPU programming", "SIMD optimisation", "memory management", "performance profiling"],
 		"Programming Languages": ["C", "C++17/C++20", "C#", "Lua scripting integration", "custom engine systems"],
 		"Development Tools": ["Visual Studio", "RenderDoc", "debugging & profiling tools", "build systems (MSBuild)"],
-		"Game Engines": ["Unity 5", "Unreal Engine 5(Familiarity with BluePrints)"],
+		"Game Engines": ["Unity 5", "Unreal Engine 5"],
 	},
 	education:
 	{
-		degree: "MSc / MComp - Computer Science for Games (Integrated Masters) 2022 - 2026",
+		degree: "MComp - Computer Science for Games (Integrated Masters) 2022 - 2026",
 		classification: "First Class Honours",
 		university: "Sheffield Hallam University ",
 		university_link: "https://www.shu.ac.uk/",
@@ -24,23 +24,45 @@ export const data = {
 			"Coursework includes: graphics, real-time rendering, compute-shaders, low-level programming, proprietary console development on PS5"
 		]
 	},
+	experience: [
+		{
+			company: "Tencent",
+			roles: [
+				{
+					name: "Engine Developer Intern",
+					since: "2026-07-06",
+					type: "Full time"
+				},
+			],
+			location: "London UK",
+			time: {
+				begin: "2026-07-06",
+				end: null
+			},
+			highlights:
+				[
+					"UE 5 Plugin Development",
+					"Porting external software based internal tools to user friendly C++ based batch processing data driven pipelines for engine users."
+				]
+		}
+	],
 	about: [`
 			I am specialising in graphics and engine programming. Experienced in developing real-time rendering systems and low-level engine architecture using C++, Vulkan, DirectX 11, PS5 AGC, and OpenGL. Strong background in GPU programming, compute shaders, deferred rendering, multithreading, SIMD optimisation, and low-level graphics API resource management.`,
-			`
+		`
 			My most recent notable project is deferred renderer with weighted blended order-independent transparency (WBOIT) implementation in Vulkan, this project was nominated in Best Research/Steel Minions/Special Project Category at Sheffield Hallam University Game Over 26 event and received an honourable mention from judges. This project has also been nominated for Game Republic Student Showcase 2026 event at University of Salford.`,
-			`
+		`
 			I am Interested in graphics programming, rendering architecture, performance optimisation, and modern engine development.`
-		],
+	],
 	contact: {
-		email: 		"egsmiroff@gmail.com",
+		email: "egsmiroff@gmail.com",
 		linkedin: "https://www.linkedin.com/in/egor-smirnov-ab227a279/",
-		cv: 			"https://drive.google.com/file/d/1bMBuG7RuyG8k6Bf7V52NN7h6t1CjR_wk/",
-		github: 	"https://github.com/Ginkour/",
-		phone: 		"+4407936623559",
-		name: 		"Egor Smirnov",
+		cv: "https://drive.google.com/file/d/1bMBuG7RuyG8k6Bf7V52NN7h6t1CjR_wk/",
+		github: "https://github.com/Ginkour/",
+		phone: "+4407936623559",
+		name: "Egor Smirnov",
 		specialities: ["Graphics", "Engine&Tools", "Gameplay"],
-		shiny_skills: ["Vulkan", "PS5 AGC", "DirectX 11", "OpenGL", "GLSL", "HLSL", "PSSL"],
-		location: 		"Sheffield, United Kingdom",
+		shiny_skills: ["Vulkan", "PS5 AGC", "DirectX 12/11", "OpenGL", "GLSL", "HLSL", "PSSL"],
+		location: "London, United Kingdom",
 	},
 	projects: [
 		{
@@ -59,7 +81,7 @@ export const data = {
 			],
 			preview: "wboit-look.gif",
 			gallery: ["wboit-sign.jpg", "wboit-nomination-table.jpg"],
-		
+
 			highlights: [
 				"Deferred rendering pipeline",
 				"Weighted blended order-independent transparency (WBOIT) for real-time transparent object rendering without depth sorting",
@@ -67,15 +89,15 @@ export const data = {
 				"Bindless rendering with descriptor indexing",
 				"Static shadow mapping",
 			],
-		
+
 			description_paragraphs: [
 				`This project is a custom Vulkan renderer built in C++ featuring deferred rendering, weighted blended order-independent transparency (WBOIT), shadow mapping, and fully explicit GPU resource management. The renderer uses multiple G-buffer render targets to store scene data such as albedo, normals, before performing fullscreen lighting and post-processing passes. Traditional render passes from core vulkan were replaced with dynamic rendering extension implementation.`,
-			
+
 				`A major focus of the project was transparency rendering using weighted blended OIT techniques. The engine accumulates transparent surfaces into dedicated render targets without requiring expensive object sorting.`,
-			
+
 				`Additional systems include shadow map generation, runtime shader and texture management, descriptor set abstraction systems, GPU staging buffers`,
 			],
-		
+
 			links: {
 				video: "8eyNf285UN0",
 				executable: "https://drive.google.com/file/d/1DLpjiZzqzPQCqYNXGUxeRwnhWK1sENJL/",
@@ -103,14 +125,14 @@ export const data = {
 				"Custom packed particle memory layouts to reduce gpu memory footprint",
 				"ImGui-based runtime configuration of compute shaders, with frametime metrics",
 			],
-		
+
 			challenges: [
 				"Synchronizing Compute and Graphics queues' workloads",
 				"Preventing GPU read/write hazards",
 				"Vertex shader based particle culling",
 				"Building reusable abstractions while preserving explicit control"
 			],
-		
+
 			description_paragraphs: [
 				`This project is a GPU-driven particle simulation and rendering system developed from scratch in C++ using Vulkan and GLSL compute shaders. The project focused heavily on low-level graphics programming, explicit GPU synchronization, memory management, and parallel compute workloads.`,
 				`Particle simulation is performed entirely on the GPU using Vulkan compute shaders and storage buffer objects. The system 		uses a ping-pong buffering architecture where particle data from the previous frame is read while the current frame writes 		updated particle state into a separate buffer set, preventing read/write hazards during simulation and rendering.`,
@@ -118,7 +140,7 @@ export const data = {
 				`A major focus of the project was explicit Vulkan synchronization and resource management. Compute and graphics workloads 		are synchronized manually using semaphores, command buffers, descriptor sets, pipeline layouts, and pipeline stage dependencies across frames-in-flight.`,
 				`Additional systems include runtime particle editing through ImGui, frametime graph visualization, custom shader loading systems, descriptor pool management, and fully custom Vulkan graphics and compute pipeline creation architecture.`,
 			],
-		
+
 			links: {
 				video: "HAVoHng3oiQ",
 				executable: "https://drive.google.com/file/d/1jBKwt_NASVQXelRwA0sLlDnlS6I4jQ8c/",
@@ -130,7 +152,7 @@ export const data = {
 			summary: "A Minecraft-inspired voxel engine and sandbox game built from scratch in C++ using DirectX 11 and HLSL, featuring infinite procedural terrain generation, multithreaded chunk systems, and optimized mesh rendering.",
 			tech: ["C++", "DirectX11/HLSL", "Multi-Threading", "Git", "FMOD"],
 			preview: "voxel-game.gif",
-			gallery: [ "voxel-pausemenu.png", "voxel-game.png", "voxel-settings.png"],
+			gallery: ["voxel-pausemenu.png", "voxel-game.png", "voxel-settings.png"],
 			highlights: [
 				"Built a multithreaded chunk generation system that generates and meshes terrain around the player in real time",
 				"Implemented infinite procedural voxel terrain with coordinate normalization to support rendering far from world origin",
@@ -213,15 +235,15 @@ export const data = {
 			gallery: [],
 			description_paragraphs: [
 				`Developed a lightweight OpenAL-based audio engine in C++ with asynchronous audio loading and sound source management 		systems.`,
-					
+
 				`Built an MSDF font generation and rendering toolchain using msdfgen and msdf-atlas-gen, including custom metadata 		generation and a header-only runtime loader library.`,
-					
+
 				`Implemented a custom std::vector-style dynamic container in modern C++ with allocator-aware memory management, move 		semantics, iterators, and Rule of Five support.`,
-					
+
 				`Created a multithreaded OpenGL particle simulation and rendering system using custom shader-based circle rendering, 		frustum culling, and cache-friendly particle layouts.`,
-					
+
 				`Developed an OpenGL port of a previously built DirectX 11 voxel engine to explore rendering API abstraction and cross-API 		rendering workflows.`,
-					
+
 				`Currently studying DirectX 12 graphics programming and modern explicit GPU resource management techniques.`
 			],
 			links: {

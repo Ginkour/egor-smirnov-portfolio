@@ -322,3 +322,60 @@ button {
   background-color: #383054;
   color: #ffffff;
 }
+
+.experience-preview-tile {
+	background: linear-gradient(
+		145deg,
+		#183b55,
+		#172d46
+	);
+
+	padding: 20px;
+	box-sizing: border-box;
+	flex: 0 0 100%;
+	width: 100%;
+	border-radius: 8px;
+	border: 1px solid #4da3d455;
+	box-shadow: 0 4px 15px #00000025;
+	transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.experience-preview-tile:hover {
+	background: linear-gradient(
+		145deg,
+		#20506d,
+		#1b3854
+	);
+
+	border-color: #58a6ff88;
+}
+
+.experience-preview-tile h3 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	color: #8bd5ff;
+}
+
+.experience-highlights {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.experience-highlight {
+	padding: 14px 16px;
+	border-radius: 6px;
+	background: #0d2033aa;
+	border-left: 3px solid #58a6ff;
+}
+
+.experience-highlight strong {
+	color: #b9e7ff;
+}
+
+.experience-highlight p {
+	margin: 8px 0 0;
+	line-height: 1.4;
+	color: #d0d8df;
+}
