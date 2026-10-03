@@ -69,7 +69,7 @@ export const data = {
 			title: "Order Independent Transparency & Deferred Rendering in Vulkan",
 			timeframe: "March 2026 - April 2026",
 			summary:
-				"Custom Vulkan based deferred renderer with Order Independent Transparency Implementation",
+				"An award winning project: Custom Vulkan based deferred renderer with Order Independent Transparency Implementation",
 			tech: [
 				"C++",
 				"Vulkan",
@@ -83,6 +83,7 @@ export const data = {
 			gallery: ["wboit-sign.jpg", "wboit-nomination-table.jpg"],
 
 			highlights: [
+				"Game Republic Student Showcase 2026 2nd in Game Technology",
 				"Deferred rendering pipeline",
 				"Weighted blended order-independent transparency (WBOIT) for real-time transparent object rendering without depth sorting",
 				"Abstraction systems over Vulkan",
@@ -91,6 +92,7 @@ export const data = {
 			],
 
 			description_paragraphs: [
+				"This project won a 2nd place at Game Republic Student Showcase 2026 in Game Technology category judged by Red Kite Games.",
 				`This project is a custom Vulkan renderer built in C++ featuring deferred rendering, weighted blended order-independent transparency (WBOIT), shadow mapping, and fully explicit GPU resource management. The renderer uses multiple G-buffer render targets to store scene data such as albedo, normals, before performing fullscreen lighting and post-processing passes. Traditional render passes from core vulkan were replaced with dynamic rendering extension implementation.`,
 
 				`A major focus of the project was transparency rendering using weighted blended OIT techniques. The engine accumulates transparent surfaces into dedicated render targets without requiring expensive object sorting.`,
